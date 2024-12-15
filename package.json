@@ -1,0 +1,28 @@
+{
+  "name": "agent-mob",
+  "version": "1.0.0",
+  "description": "Zenoflo presents Agent Mob",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "babel src --out-dir dist"
+  },
+  "author": "Jeremy Kean",
+  "license": "MIT",
+  "dependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "postcss": "^8.4.49",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "resolve-url-loader": "^5.0.0",
+    "webpack": "^5.97.1",
+    "webpack-dev-server": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.26.4",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "react-scripts": "^5.0.1"
+  }
+}
