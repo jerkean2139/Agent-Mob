@@ -1,56 +1,35 @@
 import React, { useState } from "react";
 
-const SurveyForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    feedback: "",
-  });
+const SurveyFlow = () => {
+  const [currentStep, setCurrentStep] = useState(1);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const handleNext = () => {
+    setCurrentStep((prevStep) => prevStep + 1);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Submitted:", formData);
+  const renderStep = () => {
+    switch (currentStep) {
+      case 1:
+        return <div>Survey Question 1</div>;
+      case 2:
+        return <div>Survey Question 2</div>;
+      // Add more cases for additional steps
+      default:
+        return <div>Thank you for completing the survey!</div>;
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="feedback">Feedback:</label>
-        <textarea
-          id="feedback"
-          name="feedback"
-          value={formData.feedback}
-          onChange={handleChange}
-        />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+    <div className="survey-flow">
+      <h2>Survey</h2>
+      {renderStep()}
+      {currentStep <= 2 && (
+        <button onClick={handleNext} className="next-btn">
+          Next
+        </button>
+      )}
+    </div>
   );
 };
 
-export default SurveyForm;
+export default SurveyFlow;
